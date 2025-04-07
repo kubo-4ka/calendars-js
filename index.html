@@ -13,9 +13,11 @@
       font-family: 'Segoe UI', sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      overflow-y: auto;
+      padding: 20px 0;
     }
 
     h1 {
@@ -50,8 +52,7 @@
     }
 
     footer {
-      position: absolute;
-      bottom: 15px;
+      margin-top: 30px;
       font-size: 0.8rem;
       color: #666;
     }
@@ -70,10 +71,12 @@
     <a href="./this_month_html_table/index.html" class="clock-link"> this month, html table calendar</a>
     <a href="./this_month_len7ln/index.html" class="clock-link"> this month, ln each len 7 calendar</a>
     <a href="./this_month_grid/index.html" class="clock-link"> this month, grid calendar</a>
-    <a href="./this_month_grid_self_leap_chk/index.html" class="clock-link"> this month, grid, self leap chk calendar</a>
+    <a href="./this_month_grid_self_leap_chk/index.html" class="clock-link"> this month, grid, self leap chk
+      calendar</a>
     <a href="./this_month_grid_dark/index.html" class="clock-link"> this month, grid, dark calendar</a>
     <a href="./this_month_grid_dark_center/index.html" class="clock-link"> this month, grid, dark, center calendar</a>
-    <a href="./this_month_grid_dark_center_highlight_today/index.html" class="clock-link"> this month, grid, dark, center, highlight today calendar</a>
+    <a href="./this_month_grid_dark_center_highlight_today/index.html" class="clock-link"> this month, grid, dark,
+      center, highlight today calendar</a>
   </div>
   <footer> <a href="https://qiita.com/kubo4ka/items/f6fe6806ec743cf6dcaa" target="_blank">about</a></footer>
 </body>
