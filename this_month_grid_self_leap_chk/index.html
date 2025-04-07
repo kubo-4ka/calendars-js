@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カレンダー</title>
+  <style>
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 400px;
+    }
+    #calendar div {
+      text-align: center;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="today"></h1>
+  <div id="calendar"></div>
+  <script>
+    const today = new Date(), y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
+    document.getElementById("today").textContent = `${y}/${m + 1}/${d}`;
+    const cal = document.getElementById("calendar"), w = ["日","月","火","水","木","金","土"];
+    cal.innerHTML = w.map(v=>`<div>${v}</div>`).join("");
+
+    // ==== 自前で曜日計算 ====
+    function isLeapYear(y) {
+      return y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0);
+    }
+    function getDaysInMonth(y, m) {
+      if (m === 1) return isLeapYear(y) ? 29 : 28;
+      return [31, -1, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m];
+    }
+    function countDaysSince1970(y, m, d) {
+      let days = 0;
+      for (let yy = 1970; yy < y; yy++) {
+        days += isLeapYear(yy) ? 366 : 365;
+      }
+      for (let mm = 0; mm < m; mm++) {
+        days += getDaysInMonth(y, mm);
+      }
+      return days + (d - 1);
+    }
+    const first = (countDaysSince1970(y, m, 1) + 4) % 7;
+    const last = getDaysInMonth(y, m);
+    for(let i=0;i<first;i++) cal.innerHTML += `<div></div>`;
+    for(let i=1;i<=last;i++) cal.innerHTML += `<div>${i}</div>`;
+  </script>
+</body>
+</html>

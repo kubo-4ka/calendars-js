@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カレンダー</title>
+  <style>
+    #calendar {
+      font-family: monospace;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="today"></h1>
+  <div id="calendar"></div>
+  <script>
+    const t = new Date(), y = t.getFullYear(), m = t.getMonth(), d = t.getDate();
+    document.getElementById("today").textContent = `${y}/${m+1}/${d}`;
+    const cal = document.getElementById("calendar");
+    const w = ["日","月","火","水","木","金","土"];
+    cal.innerHTML = w.join(" ") + "\n";
+    const first = new Date(y, m, 1).getDay();
+    let row = Array(first).fill("  ");
+    const last = new Date(y, m+1, 0).getDate();
+    for(let i=1;i<=last;i++){
+      row.push(i.toString().padStart(2, ' '));
+      if(row.length === 7){
+        cal.innerHTML += row.join(" ") + "\n";
+        row = [];
+      }
+    }
+    if(row.length) cal.innerHTML += row.join(" ");
+  </script>
+</body>
+</html>

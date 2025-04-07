@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カレンダーアプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calendar-container">
+    <!-- 年と月の選択 -->
+    <div class="header">
+      <button id="prevMonth">←</button>
+      <select id="yearSelect"></select>
+      <select id="monthSelect"></select>
+      <button id="todayBtn">Today</button>
+      <button id="nextMonth">→</button>
+    </div>
+
+    <!-- 曜日表示 -->
+    <div class="weekdays">
+      <div>日</div><div>月</div><div>火</div><div>水</div>
+      <div>木</div><div>金</div><div>土</div>
+    </div>
+
+    <!-- カレンダー日付部分 -->
+    <div id="calendar" class="calendar-grid"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

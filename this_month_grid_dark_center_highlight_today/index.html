@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カレンダー</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #121212;
+      color: #ffffff;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 400px;
+      width: 100%;
+      gap: 4px;
+      margin-top: 20px;
+    }
+    #calendar div {
+      text-align: center;
+      aspect-ratio: 1 / 1;
+      line-height: 2.5em;
+      background-color: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 4px;
+    }
+    #calendar div.today {
+      background-color: #004444;
+      border: 2px solid #00ffcc;
+      font-weight: bold;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="today"></h1>
+  <div id="calendar"></div>
+  <script>
+    const today = new Date(), y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
+    document.getElementById("today").textContent = `${y}/${m + 1}/${d}`;
+    const cal = document.getElementById("calendar"), w = ["日","月","火","水","木","金","土"];
+    cal.innerHTML = w.map(v=>`<div>${v}</div>`).join("");
+    const first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
+    for(let i=0;i<first;i++) cal.innerHTML += `<div></div>`;
+    for(let i=1;i<=last;i++) {
+      const isToday = y === today.getFullYear() && m === today.getMonth() && i === today.getDate();
+      const cls = isToday ? ' class="today"' : '';
+      cal.innerHTML += `<div${cls}>${i}</div>`;
+    }
+  </script>
+</body>
+</html>

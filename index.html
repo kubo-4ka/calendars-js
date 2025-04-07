@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>calendar select</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #121212;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #eee;
+    }
+
+    .link-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    a.clock-link {
+      display: block;
+      text-align: center;
+      padding: 15px 20px;
+      background-color: #1e1e1e;
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a.clock-link:hover {
+      background-color: #333;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.8rem;
+      color: #666;
+    }
+
+    footer a {
+      color: #bb86fc;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>calendar select</h1>
+  <div class="link-container">
+    <a href="./100years/index.html" class="clock-link"> 100years calendar</a>
+    <a href="./this_month_html_table/index.html" class="clock-link"> this month, html table calendar</a>
+    <a href="./this_month_len7ln/index.html" class="clock-link"> this month, ln each len 7 calendar</a>
+    <a href="./this_month_grid/index.html" class="clock-link"> this month, grid calendar</a>
+    <a href="./this_month_grid_self_leap_chk/index.html" class="clock-link"> this month, grid, self leap chk calendar</a>
+    <a href="./this_month_grid_dark/index.html" class="clock-link"> this month, grid, dark calendar</a>
+    <a href="./this_month_grid_dark_center/index.html" class="clock-link"> this month, grid, dark, center calendar</a>
+    <a href="./this_month_grid_dark_center_highlight_today/index.html" class="clock-link"> this month, grid, dark, center, highlight today calendar</a>
+  </div>
+  <footer> <a href="https://qiita.com/kubo4ka/" target="_blank">about</a></footer>
+</body>
+
+</html>

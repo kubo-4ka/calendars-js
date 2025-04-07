@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>カレンダー</title>
+  <style>
+    #calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      max-width: 400px;
+    }
+    #calendar div {
+      text-align: center;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="today"></h1>
+  <div id="calendar"></div>
+  <script>
+    const today = new Date(), y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
+    document.getElementById("today").textContent = `${y}/${m + 1}/${d}`;
+    const cal = document.getElementById("calendar"), w = ["日","月","火","水","木","金","土"];
+    cal.innerHTML = w.map(v=>`<div>${v}</div>`).join("");
+    const first = new Date(y, m, 1).getDay(), last = new Date(y, m + 1, 0).getDate();
+    for(let i=0;i<first;i++) cal.innerHTML += `<div></div>`;
+    for(let i=1;i<=last;i++) cal.innerHTML += `<div>${i}</div>`;
+  </script>
+</body>
+</html>
